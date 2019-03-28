@@ -2,6 +2,18 @@
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
 .axis {
   font: 10px sans-serif;
 }
@@ -11,4 +23,19 @@
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+.bar {
+  cursor: pointer;
+  filter: grayscale(25%);
+  transition: all ease-in-out 0.2s;
+}
+
+.bar:hover {
+  filter: grayscale(0);
+  filter: brightness(25%);
+}
+
+.axisx, .axisy {
+  font-size: 18px;
 }
