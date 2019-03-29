@@ -5,7 +5,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     dataList = []
     i = 0;
 
-let colors = [ "#11144c", "#3a9679", "#fabc60", "#dd6b4d" ,"#e16262" ];
+let colors = [ "#6d3580", "#cc4165", "#e4734f", "#00a8b5" ];
 
 // set the ranges
 var x = d3.scaleBand()
@@ -21,16 +21,19 @@ var svg = d3.select("body").append("svg")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("output.csv", function(error, data) {
+d3.csv("./csv/occurence_festival.csv", function(error, data) {
   Object.entries(data[0]).forEach(entry => {
     let el = {
       festival: entry[0],
       occurrence: parseInt(entry[1]),
       color: colors[i]
     };
+    console.log(parseInt(entry[1]));
     dataList.push(el);
     i++;
   });
+
+  console.log(dataList)
 
   if (error) throw error;
 
@@ -62,30 +65,7 @@ d3.csv("output.csv", function(error, data) {
       .attr("class","label")
       .attr("dy", ".75em")
       .attr('x', function(d) { return x(d.festival); })
-      .attr('y', function(d) { return y(d.occurrence + 15); })
-      .attr("transform", "translate(67,0)")
-      .text(function(d) { return Math.round(y(d.occurrence)); });
-
-      // .attr("x", (function(d) { return xScale(d.food) + xScale.rangeBand() / 2 ; }  ))
-      // .attr("y", function(d) { return yScale(d.quantity) + 1; })
-      // .attr("dy", ".75em")
-      // .text(function(d) { return d.quantity; });
-
-      // .attr('x', function(d) { return x(d.festival); })
-      // .attr('y', function(d) { return y(d.occurrence); })
-      // .attr("height", function(d) { return height - y(d.occurrence); })
-      // .attr('text-anchor', 'middle')
-      // .text(function(d) { return y(d.occurrence); });
-
-
-
-  // svg.selectAll(".text")
-  //     .data(dataList)
-  //     .enter().append('text')
-  //     .attr('x', -(height / 2) - margin)
-  //     .attr('y', margin / 2.4)
-  //     .attr('transform", "translate(0," + height + ")')
-  //     .attr('text-anchor', 'middle')
-  //     .text('Love meter (%)')
-
+      .attr('y', function(d) { return y(d.occurrence + 30); })
+      .attr("transform", "translate(90,0)")
+      .text(function(d) { return Math.round(d.occurrence); });
 });
