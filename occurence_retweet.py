@@ -16,11 +16,11 @@ res = es.search(index="twitter_festival_index",
                       }
                     },
                     "filter" : {
-                      "bool" : {
-                        "must" : {
-                          "retweet_count" : { "gt" : 100 } 
-                        }   
-                      }
+                      "must" : {
+                        "range":{
+                          "favorite_count" : { "gt" : 100 } 
+                        }
+                      }   
                     }
                   }
                 }

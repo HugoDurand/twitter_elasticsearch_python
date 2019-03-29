@@ -69,7 +69,7 @@ countlang[1].append(countPt)
 countlang[0].append("Korean")
 countlang[1].append(countKo)
 
-f = open('outputlang.csv', 'w')
+f = open('lang_hellfest.csv', 'w')
 with f:
   writer = csv.writer(f)
 

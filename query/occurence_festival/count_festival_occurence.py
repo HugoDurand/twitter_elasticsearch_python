@@ -100,12 +100,15 @@ res = es.search(index="twitter_festival_index",
                   }
                 }
               )
+countfestival[0].append("hellfest")
+countfestival[1].append(res['hits']['total'])  
+
 
 res = es.search(index="twitter_festival_index",
                 scroll = '2m',
                 size = 1000,
                 body=
-                # search all 'hellfest'
+                # search all 'summerfest'
                 {
                   "query" : {
                     "match_phrase":{
@@ -117,11 +120,14 @@ res = es.search(index="twitter_festival_index",
                 }
               )
 
+countfestival[0].append("summerfest")
+countfestival[1].append(res['hits']['total'])
+
 res = es.search(index="twitter_festival_index",
                 scroll = '2m',
                 size = 1000,
                 body=
-                # search all 'hellfest'
+                # search all 'coachella'
                 {
                   "query" : {
                     "match_phrase":{
@@ -133,12 +139,12 @@ res = es.search(index="twitter_festival_index",
                 }
               )
 
-countfestival[0].append("hellfest")
+countfestival[0].append("coachella")
 countfestival[1].append(res['hits']['total'])
 
 print("HERE IS  mylist =>", countfestival)
 
-f = open('output_festival.csv', 'w')
+f = open('occurence_festival.csv', 'w')
 with f:
   writer = csv.writer(f)
 
