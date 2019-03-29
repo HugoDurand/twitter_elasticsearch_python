@@ -17,6 +17,7 @@ var y = d3.scaleLinear()
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("class", "bar-chart")
     .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
