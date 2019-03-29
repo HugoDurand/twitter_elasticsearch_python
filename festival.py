@@ -41,6 +41,6 @@ class StreamApi(tweepy.StreamListener):
 
 streamer = tweepy.Stream(auth=auth, listener=StreamApi())
 
-terms = ['tomorrowland', 'solidays', 'lowlands', 'rock en seine', 'lollapalooza']
+terms = ['tomorrowland', 'solidays', 'lowlands', 'hellfest', 'lollapalooza', 'summerfest', 'coachella']
 
 streamer.filter(None, terms)
