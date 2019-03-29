@@ -46,10 +46,6 @@ for item in res['hits']['hits']:
    if item['_source']["user"]["lang"] == "pt":
      countPt += 1
 
-for item in res['hits']['hits']:
-   if item['_source']["user"]["lang"] == "ko":
-     countKo += 1
-
 
 countlang[0].append("Anglais")
 countlang[1].append(countEn)
@@ -65,9 +61,6 @@ countlang[1].append(countNl)
 
 countlang[0].append("Portuguais")
 countlang[1].append(countPt)
-
-countlang[0].append("Korean")
-countlang[1].append(countKo)
 
 f = open('lang_hellfest.csv', 'w')
 with f:

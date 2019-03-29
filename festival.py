@@ -30,8 +30,6 @@ class StreamApi(tweepy.StreamListener):
 
     json_data = status._json
     print json_data['text']
-    # with open('data.json', 'w') as outfile:
-    #   json.dump(json_data, outfile)
     es.index(index="twitter_festival_index",
               doc_type="twitter",
               body=json_data,
@@ -41,6 +39,6 @@ class StreamApi(tweepy.StreamListener):
 
 streamer = tweepy.Stream(auth=auth, listener=StreamApi())
 
-terms = ['tomorrowland', 'solidays', 'lowlands', 'hellfest', 'lollapalooza', 'summerfest', 'coachella']
+terms = ['tomorrowland', 'hellfest', 'lollapalooza', 'coachella']
 
 streamer.filter(None, terms)
